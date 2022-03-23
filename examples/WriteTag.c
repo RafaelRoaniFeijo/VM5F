@@ -8,7 +8,7 @@
 
 
 int i;
-GEN2_WRITE_DATA write_data;
+GEN2_WRITE_DATA write_data; //tipo GEN2_WRITE_DATA que acessa o epc e o serial
 
 WRITE_TAG_DATA writeTagData; //se declarar uma variável "writeTagData" como um tipo e for um typedef struct "WRITE_TAG_DATA", pode acessá-lo
 
@@ -41,7 +41,7 @@ void LerArquivoTag(void)
               // completar com zeros j
             for(; j < TAG_CODE_SIZE; j++) //não seta o primeiro indice pois já está sendo preenchido TAG_CODE_SIZE - os 8 valores seriais
             {
-                write_data.DATA.serial[j] = 0;
+                write_data.DATA.serial[j] = 0; //os que não estão sendo setados, preenche com 0
             }
             writeTagData.flags.FLAGS.writeTag = 1; //seta e consegue iniciar o writeTag
         }
