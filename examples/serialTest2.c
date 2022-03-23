@@ -58,7 +58,7 @@ int main()
   unsigned int nextTime;
   // uint8_t TxDataInit = 0;
 
-  if ((fd = serialOpen("/dev/ttyS2", 115200)) < 0)
+  if ((fd = serialOpen("/dev/ttyS2", 9600)) < 0)
   {
     fprintf(stderr, "Unable to open serial device: %s\n", strerror(errno));
     return 1;
