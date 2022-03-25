@@ -310,7 +310,7 @@ void VM5F_RxCmd_GetAndClearTagBuffer(void)
 		for (i = 0; i < TAG_GEN2_SIZE; i++)
 			VM5F_received_tag.Bytes[TAG_GEN2_SIZE - 1 - i] = tag.Code.Bytes[i];
 
-		tag.Code.DATA.Tid.Int = 0;
+		tag.Code.DATA.Tid.Int = 0;					//
 		tag.Code.DATA.TidCRC16.Int = 0;
 
 		VM5F_Flags.DATA.CheckCmdData = 1; // signalize tag found

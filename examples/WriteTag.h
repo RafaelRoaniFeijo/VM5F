@@ -11,9 +11,9 @@ FILE *file;
 FILE *file_permanente;
 
 unsigned int valoresTag;
-char Linha[100];
-char *linha_ptr; // ponteiro
-char *result;
+char Linha[50];
+char *linha_ptr = (char *) malloc(20 * sizeof(char)); // ponteiro
+char *result = (char *) malloc(20 * sizeof(char));
 
 
 char adicionar_nova_palavra[100];

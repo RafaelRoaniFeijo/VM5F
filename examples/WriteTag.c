@@ -16,8 +16,8 @@ void LerArquivoTag(void)
 {//var criada . acessa a struct WRITE_TAG_DATA pra pegar a flag e a flag é do tipo WRITE_TAG_FLAGS (typedef union que acessa a struct FLAGS ou value) . acessa a struct FLAGS e acessa seu membro writing
     if (writeTagData.flags.FLAGS.writing == 0) // se não está processando, consegue ler
     {
-        file = fopen("teste.txt", "r"); // w+ read/write
-        result = fgets(Linha, 18, file); // o 'fgets' lê até 99 caracteres ou até o '\n
+        file = fopen("teste.txt", "r+"); // w+ read/write para leitura e escrita
+        result = fgets(Linha, 9, file); // o 'fgets' lê até 99 caracteres ou até o '\n
         linha_ptr = &Linha[0];           // aponta pra primeira posição e pula de 2 em 2 (hexadecimal)
                                          // linha_ptr = Linha;
         write_data.DATA.flag.DATA.lock = 1; //futuramente da pra fazer com que seja setado no arquivo
@@ -28,10 +28,13 @@ void LerArquivoTag(void)
         { // Se foi possível ler
             int j;
 
-            for (j = 0; j < (strlen(Linha)) / 2; j++)
+            for (j = 0; j < 8; j++) //(strlen(Linha)) / 2
             {
                 sscanf(linha_ptr, "%2X", &valoresTag);
-
+            //os caracteres de entrada são recebidos da string linha_ptr
+            //linha_ptr é usado como entrada para leitura e escrita
+            //a variável valoresTag recebe o valor da string (inserida no teste.txt) e armazena 
+            //em 9 posições em  write_data.DATA.serial[j]
                 write_data.DATA.serial[j] = valoresTag; //limitar para ser apenas 3 valores preenchidos somente no front
                 
                 // printf("%d\n", write_data.DATA.serial[j]);
