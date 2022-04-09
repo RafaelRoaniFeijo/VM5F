@@ -1,3 +1,4 @@
+O projeto foi iniciado por uma necessidade do setor da produção para otimização do tempo na geração dos códigos e criptografia para tags veiculares UHF.
 ## How to download wiringOP
 
 ```
